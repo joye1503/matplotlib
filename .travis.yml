@@ -151,7 +151,7 @@ install:
     git describe
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
     python -mpip install --upgrade pip setuptools wheel
-  - if [ `TRAVIS_CPU_ARCH` == 'aarch64' ]; then
+  - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
       wget -q "https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh" -O miniconda.sh;
       chmod +x miniconda.sh;
       bash miniconda.sh -b -p /opt/conda;
