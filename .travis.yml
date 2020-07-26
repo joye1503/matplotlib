@@ -87,6 +87,7 @@ matrix:
         - PINNEDVERS='-c requirements/testing/minver.txt'
         - DELETE_FONT_CACHE=1
         - PIP_NO_CACHE_DIR=off
+        - XVFB=xvfb-run
     - python: 3.7
       env:
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
@@ -95,6 +96,7 @@ matrix:
       env:
         - EXTRAREQS='-r requirements/testing/travis_arm64_extra.txt'
         - PIP_NO_CACHE_DIR=off
+        - XVFB=xvfb-run
     - python: 3.8
       env:
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
@@ -103,6 +105,7 @@ matrix:
       env:
         - EXTRAREQS='-r requirements/testing/travis_arm64_extra.txt'
         - PIP_NO_CACHE_DIR=off
+        - XVFB=xvfb-run
     - python: "nightly"
       env:
         - PRE=--pre
@@ -151,16 +154,6 @@ install:
     git describe
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
     python -mpip install --upgrade pip setuptools wheel
-  - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
-      wget -q "https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh" -O miniconda.sh;
-      chmod +x miniconda.sh;
-      bash miniconda.sh -b -p /opt/conda;
-      source /opt/conda/bin/activate;
-      conda update -y conda;
-      conda config --set auto_update_conda False;
-      conda install -q -y anaconda-client pandas pyzmq ipython;
-      XVFB=xvfb-run;
-    fi
   - |
     # Install dependencies from PyPI.
     python -mpip install --upgrade $PRE -r requirements/testing/travis_all.txt $EXTRAREQS $PINNEDVERS
