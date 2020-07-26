@@ -8,5 +8,4 @@ pytest-timeout
 pytest-xdist
 python-dateutil
 tornado
-cytoolz
-jupyter
+
