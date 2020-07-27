@@ -55,9 +55,6 @@ addons:
       - texlive-luatex
       - texlive-xetex
       - ttf-wqy-zenhei
-      - xvfb
-      - python3-tk
-      - imagemagick
 
 env:
   global:
