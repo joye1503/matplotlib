@@ -29,7 +29,6 @@ def _get_testable_interactive_backends():
             (["tkinter"], "tkagg"),
             (["wx"], "wx"),
             (["wx"], "wxagg"),
-            (["pandas"], "pandas"),
             (["matplotlib.backends._macosx"], "macosx"),
     ]:
         reason = None
