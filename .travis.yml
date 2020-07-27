@@ -154,6 +154,9 @@ install:
     git describe
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
     python -mpip install --upgrade pip setuptools wheel
+  - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
+      apt-get install -y xvfb python3-tk imagemagick;
+    fi
   - |
     # Install dependencies from PyPI.
     python -mpip install --upgrade $PRE -r requirements/testing/travis_all.txt $EXTRAREQS $PINNEDVERS
