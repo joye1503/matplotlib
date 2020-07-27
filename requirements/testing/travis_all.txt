@@ -9,3 +9,5 @@ pytest-xdist
 python-dateutil
 tornado
 ipython
+cytoolz
+jupyter
