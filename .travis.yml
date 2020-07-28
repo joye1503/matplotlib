@@ -210,7 +210,7 @@ script:
     # The number of processes is hardcoded (-n2), because using too many
     # causes the Travis VM to run out of memory (since so many copies of
     # inkscape and ghostscript are running at the same time).
-    $XVFB python -mpytest -raR --maxfail=50 --timeout=300 --durations=25 --cov-report= --cov=lib -n4 --log-level=DEBUG
+    travis_wait 30 $XVFB python -mpytest -raR --maxfail=50 --timeout=300 --durations=25 --cov-report= --cov=lib -n4 --log-level=DEBUG
 
 before_cache: |
   rm -rf $HOME/.cache/matplotlib/tex.cache
