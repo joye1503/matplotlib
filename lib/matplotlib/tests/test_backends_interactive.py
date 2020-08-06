@@ -146,9 +146,9 @@ _test_timeout = 10  # Empirically, 1s is not enough on Travis.
 @pytest.mark.parametrize("toolbar", ["toolbar2", "toolmanager"])
 @pytest.mark.flaky(reruns=3)
 def test_interactive_backend(backend, toolbar):
-    output = subprocess.check_output(['uname', '-m'])
-    if 'aarch64' in output.decode("utf8"):
-        pytest.skip("Skipping for aarch64 architecture")
+    #output = subprocess.check_output(['uname', '-m'])
+    #if 'aarch64' in output.decode("utf8"):
+        #pytest.skip("Skipping for aarch64 architecture")
     if backend == "macosx" and toolbar == "toolmanager":
         pytest.skip("toolmanager is not implemented for macosx.")
     proc = subprocess.run(
