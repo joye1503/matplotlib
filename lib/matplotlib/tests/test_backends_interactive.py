@@ -148,7 +148,7 @@ _test_timeout = 10  # Empirically, 1s is not enough on Travis.
 def test_interactive_backend(backend, toolbar):
     #output = subprocess.check_output(['uname', '-m'])
     if platform.machine() == 'ARM64':
-        #pytest.skip("Skipping for aarch64 architecture")
+        pytest.skip("Skipping for aarch64 architecture")
     if backend == "macosx" and toolbar == "toolmanager":
         pytest.skip("toolmanager is not implemented for macosx.")
     proc = subprocess.run(
