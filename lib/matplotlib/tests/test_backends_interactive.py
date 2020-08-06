@@ -11,7 +11,7 @@ import urllib.request
 import pytest
 
 import matplotlib as mpl
-
+import platform
 
 # Minimal smoke-testing of the backends for which the dependencies are
 # PyPI-installable on CI.  They are not available for all tested Python
